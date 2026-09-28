@@ -407,8 +407,68 @@ footer{
     </p>
 
 </div>
+<script>
+let selectedSize = "";
 
-</
+function selectSize(button, size) {
+    document.querySelectorAll(".size").forEach(function(btn) {
+        btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+    selectedSize = size;
+}
+
+function startCheckout() {
+
+    if (selectedSize === "") {
+        alert("Please select your size first.");
+        return;
+    }
+
+    document.getElementById("productPage").classList.add("hidden");
+    document.getElementById("checkoutPage").classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+function goToPayment() {
+
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let address = document.getElementById("address").value.trim();
+
+    if (name === "") {
+        alert("Please enter your name.");
+        return;
+    }
+
+    if (phone === "") {
+        alert("Please enter your mobile number.");
+        return;
+    }
+
+    if (address === "") {
+        alert("Please enter your full address.");
+        return;
+    }
+
+    document.getElementById("checkoutPage").classList.add("hidden");
+    document.getElementById("paymentPage").classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+function paymentDone() {
+
+    document.getElementById("paymentPage").classList.add("hidden");
+    document.getElementById("successPage").classList.remove("hidden");
+
+    document.getElementById("finalSize").innerText = selectedSize;
+
+    window.scrollTo(0, 0);
+}
+</script>
 
 
 
