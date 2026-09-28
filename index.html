@@ -469,7 +469,165 @@ function paymentDone() {
     window.scrollTo(0, 0);
 }
 </script>
+<script>
+/* ================= PAYMENT PAGE ================= */
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const paymentPage = document.getElementById("paymentPage");
+
+    if (paymentPage) {
+
+        paymentPage.innerHTML = `
+
+            <h2>Payment</h2>
+
+            <!-- SPECIAL OFFER -->
+            <div style="
+                background:linear-gradient(135deg,#fff3cd,#ffe082);
+                border:2px solid #ffb300;
+                border-radius:10px;
+                padding:18px;
+                text-align:center;
+                margin-bottom:18px;
+            ">
+
+                <div style="
+                    font-size:16px;
+                    font-weight:bold;
+                ">
+                    🎁 SPECIAL OFFER APPLIED
+                </div>
+
+                <div style="
+                    color:#777;
+                    text-decoration:line-through;
+                    font-size:18px;
+                    margin-top:8px;
+                ">
+                    ₹599
+                </div>
+
+                <div style="
+                    color:#e53935;
+                    font-size:32px;
+                    font-weight:bold;
+                    margin-top:3px;
+                ">
+                    ₹199
+                </div>
+
+                <div style="
+                    color:#168b32;
+                    font-weight:bold;
+                    margin-top:5px;
+                ">
+                    You Save ₹400
+                </div>
+
+            </div>
+
+
+            <p style="font-size:17px;">
+                Amount to Pay: <b>₹199</b>
+            </p>
+
+
+            <!-- QR PAYMENT -->
+            <div class="upi">
+
+                <p style="
+                    font-size:18px;
+                    font-weight:bold;
+                ">
+                    Scan QR to Pay
+                </p>
+
+
+                <img
+                    src="payment-qr.jpg"
+                    alt="UPI Payment QR Code"
+                    style="
+                        width:250px;
+                        max-width:100%;
+                        display:block;
+                        margin:18px auto;
+                        border:5px solid white;
+                        border-radius:8px;
+                    "
+                >
+
+
+                <div style="
+                    font-size:15px;
+                    font-weight:bold;
+                    margin-top:8px;
+                ">
+                    UPI ID
+                </div>
+
+
+                <div class="upi-id">
+                    raj-963518@ptyes
+                </div>
+
+
+                <p style="
+                    font-size:14px;
+                    line-height:1.5;
+                    margin-top:12px;
+                ">
+                    Scan this QR using Google Pay,
+                    PhonePe, Paytm or any UPI app
+                    and pay ₹199.
+                </p>
+
+
+                <button
+                    type="button"
+                    class="buy"
+                    onclick="paymentDone()"
+                >
+                    I HAVE PAID ₹199
+                </button>
+
+
+                <div class="note">
+                    Payment verification is manual.
+                </div>
+
+            </div>
+        `;
+    }
+
+});
+
+
+/* ================= PAYMENT CONFIRMATION ================= */
+
+function paymentDone() {
+
+    document
+        .getElementById("paymentPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("successPage")
+        .classList.remove("hidden");
+
+    if (typeof selectedSize !== "undefined") {
+
+        const sizeElement =
+            document.getElementById("finalSize");
+
+        if (sizeElement) {
+            sizeElement.innerText = selectedSize;
+        }
+    }
+
+    window.scrollTo(0, 0);
+}
+</script>
     
 
 
