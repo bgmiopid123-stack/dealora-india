@@ -410,19 +410,7 @@ footer{
 
 </
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  // SIZE BUTTON FIX
-  document.querySelectorAll(".size-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-
-      document.querySelectorAll(".size-btn").forEach(function (b) {
-        b.classList.remove("selected");
-      });
-
-      this.classList.add("selected");
-      window.selectedSize = this.innerText.trim();
 
 
 
