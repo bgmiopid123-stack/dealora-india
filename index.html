@@ -409,3 +409,49 @@ footer{
 </div>
 
 </
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // SIZE BUTTON FIX
+  document.querySelectorAll(".size-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+
+      document.querySelectorAll(".size-btn").forEach(function (b) {
+        b.classList.remove("selected");
+      });
+
+      this.classList.add("selected");
+      window.selectedSize = this.innerText.trim();
+
+    });
+  });
+
+  // BUY NOW BUTTON FIX
+  const buyButton = document.querySelector(".buy-btn");
+
+  if (buyButton) {
+    buyButton.addEventListener("click", function () {
+
+      if (!window.selectedSize) {
+        alert("Please select your size first.");
+        return;
+      }
+
+      const productPage = document.getElementById("productPage");
+      const checkoutPage = document.getElementById("checkoutPage");
+
+      if (productPage && checkoutPage) {
+        productPage.style.display = "none";
+        checkoutPage.style.display = "block";
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    });
+  }
+
+});
+</script>
