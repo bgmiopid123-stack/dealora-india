@@ -1,1 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Leather Jacket | Dealora India</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+
+header{
+    background:#2874f0;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+    margin:15px auto;
+    padding:10px;
+}
+
+.product-box,
+.checkout-box,
+.payment-box,
+.success-box{
+    background:white;
+    border-radius:10px;
+    padding:18px;
+    box-shadow:0 2px 10px #0002;
+}
+
+.main-image{
+    width:100%;
+    height:350px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.thumbnails{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.thumbnails img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border:2px solid #ddd;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+h1{
+    margin-top:15px;
+    font-size:25px;
+}
+
+.rating{
+    margin-top:8px;
+    font-size:15px;
+}
+
+.price{
+    font-size:30px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.old-price{
+    color:#888;
+    text-decoration:line-through;
+    margin-left:8px;
+    font-size:16px;
+}
+
+.offer{
+    display:inline-block;
+    background:#e53935;
+    color:white;
+    padding:6px 10px;
+    border-radius:4px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.info{
+    margin-top:15px;
+    line-height:1.7;
+}
+
+.size-title{
+    font-weight:bold;
+    margin-top:18px;
+}
+
+.sizes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:8px;
+}
+
+.size{
+    padding:10px 15px;
+    background:white;
+    border:1px solid #aaa;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.size.selected{
+    background:#2874f0;
+    color:white;
+    border-color:#2874f0;
+}
+
+.buy{
+    width:100%;
+    background:#ff9f00;
+    color:#222;
+    border:none;
+    padding:15px;
+    margin-top:20px;
+    border-radius:5px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.checkout-box h2,
+.payment-box h2,
+.success-box h2{
+    margin-bottom:18px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:13px;
+    margin-bottom:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:15px;
+}
+
+textarea{
+    height:100px;
+    resize:none;
+}
+
+.next{
+    width:100%;
+    background:#2874f0;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:5px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.upi{
+    background:#f1f3f6;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    margin-top:15px;
+}
+
+.payment-qr{
+    display:block;
+    width:180px;
+    max-width:60vw;
+    height:auto;
+    margin:15px auto;
+    border:3px solid white;
+    border-radius:8px;
+}
+
+.upi-id{
+    font-size:19px;
+    font-weight:bold;
+    margin:10px;
+    word-break:break-word;
+}
+
+.note{
+    font-size:13px;
+    color:#777;
+    margin-top:12px;
+}
+
+.offer-card{
+    background:linear-gradient(135deg,#fff3cd,#ffe082);
+    border:2px solid #ffb300;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.offer-title{
+    font-size:15px;
+    font-weight:bold;
+}
+
+.offer-old{
+    color:#777;
+    text-decoration:line-through;
+    font-size:17px;
+    margin-top:7px;
+}
+
+.offer-new{
+    color:#e53935;
+    font-size:30px;
+    font-weight:bold;
+    margin-top:2px;
+}
+
+.offer-save{
+    color:#168b32;
+    font-weight:bold;
+    margin-top:4px;
+}
+
+/* TRUST SECTION */
+
+.trust-section{
+    margin-top:20px;
+    padding:16px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+}
+
+.trust-title{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.trust-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px 4px;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+.trust-item:last-child{
+    border-bottom:none;
+}
+
+.trust-icon{
+    font-size:22px;
+    width:30px;
+    text-align:center;
+}
+
+/* ORDER SUMMARY */
+
+.order-summary{
+    margin:18px 0;
+    padding:16px;
+    background:#f8f8f8;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.order-summary h3{
+    margin-bottom:12px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:9px 0;
+    font-size:14px;
+}
+
+.summary-total{
+    border-top:1px solid #ddd;
+    padding-top:11px;
+    margin-top:11px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* FINAL PAGE */
+
+.final-message{
+    text-align:center;
+    line-height:1.6;
+}
+
+.final-message h2{
+    margin-bottom:15px;
+}
+
+.pending-box{
+    margin-top:20px;
+    padding:16px;
+    background:#fff8e1;
+    border-radius:10px;
+}
+
+.delivery-box{
+    margin-top:15px;
+    padding:16px;
+    background:#f1f8ff;
+    border-radius:10px;
+}
+
+.support-box{
+    margin-top:18px;
+    padding:14px;
+    background:#f5f5f5;
+    border-radius:10px;
+    font-size:14px;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#777;
+    font-size:12px;
+}
+
+@media(max-width:480px){
+
+    .container{
+        width:100%;
+        padding:8px;
+        margin:8px auto;
+    }
+
+    .product-box,
+    .checkout-box,
+    .payment-box,
+    .success-box{
+        padding:15px;
+    }
+
+    .main-image{
+        height:300px;
+    }
+
+    h1{
+        font-size:23px;
+    }
+
+    .price{
+        font-size:28px;
+    }
+
+    .payment-qr{
+        width:180px;
+        max-width:60vw;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">DEALORA INDIA</div>
+</header>
+
+<div class="container">
+
+<!-- PRODUCT PAGE -->
+
+<div class="product-box" id="productPage">
+
+    <img
+        id="mainImage"
+        class="main-image"
+        src="IMG_20260929_033822.jpg"
+        alt="Leather Jacket"
+    >
+
+    <div class="thumbnails">
+
+        <img
+            src="IMG_20260929_033822.jpg"
+            onclick="changeImage(this.src)"
+            alt="Leather Jacket"
+        >
+
+        <img
+            src="IMG_20260929_033833.jpg"
+            onclick="changeImage(this.src)"
+            alt="Leather Jacket"
+        >
+
+        <img
+            src="IMG_20260929_033851.jpg"
+            onclick="changeImage(this.src)"
+            alt="Leather Jacket"
+        >
+
+    </div>
+
+    <h1>Leather Jacket</h1>
+
+    <div class="rating">
+        ⭐ Seller rating: 4.1/5 (1,808+ ratings)
+    </div>
+
+    <div class="offer">
+        SPECIAL SALE
+    </div>
+
+    <div class="price">
+        ₹199
+        <span class="old-price">₹599</span>
+    </div>
+
+    <div class="info">
+        <b>For:</b> Male & Female<br>
+        <b>Material:</b> Synthetic Leather<br>
+        <b>Available Sizes:</b> M, L, XL, XXL, XXXL
+    </div>
+
+    <div class="size-title">
+        Select Size
+    </div>
+
+    <div class="sizes">
+
+        <button class="size" onclick="selectSize(this,'M')">M</button>
+
+        <button class="size" onclick="selectSize(this,'L')">L</button>
+
+        <button class="size" onclick="selectSize(this,'XL')">XL</button>
+
+        <button class="size" onclick="selectSize(this,'XXL')">XXL</button>
+
+        <button class="size" onclick="selectSize(this,'XXXL')">XXXL</button>
+
+    </div>
+
+    <!-- TRUST BUILDING -->
+
+    <div class="trust-section">
+
+        <div class="trust-title">
+            Why Shop With Us?
+        </div>
+
+        <div class="trust-item">
+            <div class="trust-icon">🔒</div>
+            <div>
+                <b>Secure Checkout</b><br>
+                Safe and simple ordering process
+            </div>
+        </div>
+
+        <div class="trust-item">
+            <div class="trust-icon">💳</div>
+            <div>
+                <b>Secure Payment</b><br>
+                Payment is manually verified
+            </div>
+        </div>
+
+        <div class="trust-item">
+            <div class="trust-icon">📦</div>
+            <div>
+                <b>Easy Ordering</b><br>
+                Select size → Address → Payment
+            </div>
+        </div>
+
+        <div class="trust-item">
+            <div class="trust-icon">⭐</div>
+            <div>
+                <b>Rated 4.1/5</b><br>
+                Based on 1,808+ ratings
+            </div>
+        </div>
+
+        <div class="trust-item">
+            <div class="trust-icon">💬</div>
+            <div>
+                <b>Customer Support</b><br>
+                Email: cloths@gmail.come
+            </div>
+        </div>
+
+    </div>
+
+    <button
+        class="buy"
+        onclick="startCheckout()">
+        BUY NOW — ₹199
+    </button>
+
+</div>
+
+
+<!-- ADDRESS PAGE -->
+
+<div
+    class="checkout-box hidden"
+    id="checkoutPage">
+
+    <h2>Delivery Details</h2>
+
+    <!-- ORDER SUMMARY -->
+
+    <div class="order-summary">
+
+        <h3>Order Summary</h3>
+
+        <div class="summary-row">
+            <span>Product</span>
+            <span>Leather Jacket</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Size</span>
+            <span id="summarySize">Not selected</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Price</span>
+            <span>
+                <s>₹599</s> ₹199
+            </span>
+        </div>
+
+        <div class="summary-row summary-total">
+            <span>Total</span>
+            <span>₹199</span>
+        </div>
+
+    </div>
+
+    <input
+        id="name"
+        type="text"
+        placeholder="Full Name"
+        autocomplete="name"
+    >
+
+    <input
+        id="phone"
+        type="tel"
+        placeholder="Mobile Number (10 digits)"
+        maxlength="10"
+        inputmode="numeric"
+        autocomplete="tel"
+        oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)"
+    >
+
+    <textarea
+        id="address"
+        placeholder="Full Delivery Address"
+    ></textarea>
+
+    <button
+        class="next"
+        onclick="goToPayment()">
+        CONTINUE TO PAYMENT
+    </button>
+
+</div>
+
+
+<!-- PAYMENT PAGE -->
+
+<div
+    class="payment-box hidden"
+    id="paymentPage">
+
+    <h2>Payment</h2>
+
+    <div class="offer-card">
+
+        <div class="offer-title">
+            🎁 SPECIAL OFFER APPLIED
+        </div>
+
+        <div class="offer-old">
+            ₹599
+        </div>
+
+        <div class="offer-new">
+            ₹199
+        </div>
+
+        <div class="offer-save">
+            You Save ₹400
+        </div>
+
+    </div>
+
+    <p style="font-size:17px;">
+        Amount to Pay: <b>₹199</b>
+    </p>
+
+    <div class="upi">
+
+        <p style="
+            font-size:18px;
+            font-weight:bold;
+        ">
+            Scan QR to Pay
+        </p>
+
+        <img
+            class="payment-qr"
+            src="payment-qr.jpg"
+            alt="UPI Payment QR Code"
+            onerror="this.onerror=null;this.src='IMG_20260929_044811.jpg';"
+        >
+
+        <div style="
+            font-size:15px;
+            font-weight:bold;
+            margin-top:8px;
+        ">
+            UPI ID
+        </div>
+
+        <div class="upi-id">
+            raj-963518@ptyes
+        </div>
+
+        <p style="
+            font-size:14px;
+            line-height:1.5;
+            margin-top:12px;
+        ">
+            Scan this QR using Google Pay,
+            PhonePe, Paytm or any UPI app
+            and pay ₹199.
+        </p>
+
+        <button
+            type="button"
+            class="buy"
+            onclick="paymentDone()">
+            DONE
+        </button>
+
+        <div class="note">
+            After making the payment, tap DONE.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FINAL / SUCCESS PAGE -->
+
+<div
+    class="success-box hidden"
+    id="successPage">
+
+    <div class="final-message">
+
+        <h2>✅ Order Received</h2>
+
+        <p>
+            <b>Thank you for your order!</b>
+        </p>
+
+        <br>
+
+        <p>
+            <b>Product:</b> Leather Jacket
+        </p>
+
+        <p>
+            <b>Amount:</b> ₹199
+        </p>
+
+        <p>
+            <b>Size:</b>
+            <span id="finalSize"></span>
+        </p>
+
+        <div class="pending-box">
+
+            ⏳ <b>Payment Confirmation Pending</b>
+
+            <br><br>
+
+            Payment confirmation mein thoda time lag sakta hai.
+            Please kuch der wait karein.
+
+            <br><br>
+
+            Payment confirm hone ke baad aapka order update
+            ho jayega.
+
+        </div>
+
+        <div class="delivery-box">
+
+            🚚 <b>Delivery Information</b>
+
+            <br><br>
+
+            Payment confirmation ke baad aapka order process
+            kiya jayega.
+
+            <br><br>
+
+            <b>Aap nishchint rahiye.</b>
+
+            <br><br>
+
+            Aapka order confirmation ke baad
+            <b>7–8 din</b> mein aapke ghar pahunch jayega.
+
+        </div>
+
+        <div class="support-box">
+
+            💬 <b>Customer Support</b>
+
+            <br><br>
+
+            Email:
+            <b>cloths@gmail.come</b>
+
+        </div>
+
+        <p style="margin-top:20px;">
+            Thank you for shopping with
+            <b>Dealora India ❤️</b>
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+<footer>
+    © 2026 Dealora India
+</footer>
+
+
+<script>
+
+let selectedSize = "";
+
+
+/* CHANGE PRODUCT IMAGE */
+
+function changeImage(imageSource){
+
+    document.getElementById("mainImage").src = imageSource;
+
+}
+
+
+/* SELECT SIZE */
+
+function selectSize(button, size){
+
+    document
+        .querySelectorAll(".size")
+        .forEach(function(btn){
+
+            btn.classList.remove("selected");
+
+        });
+
+    button.classList.add("selected");
+
+    selectedSize = size;
+
+    document.getElementById("summarySize").innerText = size;
+
+}
+
+
+/* BUY NOW */
+
+function startCheckout(){
+
+    if(selectedSize === ""){
+
+        alert("Please select your size first.");
+
+        return;
+
+    }
+
+    document
+        .getElementById("productPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("checkoutPage")
+        .classList.remove("hidden");
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* ADDRESS → PAYMENT */
+
+function goToPayment(){
+
+    let name =
+        document.getElementById("name").value.trim();
+
+    let phone =
+        document.getElementById("phone").value.trim();
+
+    let address =
+        document.getElementById("address").value.trim();
+
+
+    if(name === ""){
+
+        alert("Please enter your name.");
+
+        document.getElementById("name").focus();
+
+        return;
+
+    }
+
+
+    /* EXACTLY 10 DIGITS */
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        alert("Please enter a valid 10-digit mobile number.");
+
+        document.getElementById("phone").focus();
+
+        return;
+
+    }
+
+
+    if(address === ""){
+
+        alert("Please enter your full delivery address.");
+
+        document.getElementById("address").focus();
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("checkoutPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("paymentPage")
+        .classList.remove("hidden");
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* PAYMENT → FINAL PAGE */
+
+function paymentDone(){
+
+    document
+        .getElementById("paymentPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("successPage")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("finalSize")
+        .innerText = selectedSize;
+
+    window.scrollTo(0,0);
+
+}
+
+</script>
+
+</body>
+  </html>
