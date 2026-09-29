@@ -734,3 +734,181 @@ function paymentDone(){
 
 </body>
         </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================= TRUST + ORDER SUMMARY ADDITION ================= -->
+
+<style>
+.trust-box{
+    margin:20px 0;
+    padding:16px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+}
+
+.trust-box h3{
+    text-align:center;
+    margin:0 0 12px;
+    font-size:20px;
+}
+
+.trust-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:11px 4px;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+.trust-row:last-child{
+    border-bottom:none;
+}
+
+.trust-icon{
+    font-size:22px;
+    width:30px;
+    text-align:center;
+}
+
+.extra-order-summary{
+    margin:18px 0;
+    padding:16px;
+    background:#f8f8f8;
+    border:1px solid #ddd;
+    border-radius:12px;
+}
+
+.extra-order-summary h3{
+    margin:0 0 12px;
+}
+
+.extra-summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:9px 0;
+    font-size:14px;
+}
+
+.extra-summary-total{
+    border-top:1px solid #ddd;
+    padding-top:11px;
+    margin-top:11px;
+    font-size:17px;
+    font-weight:bold;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    /* ---------- TRUST SECTION ---------- */
+
+    const buyButton = document.querySelector(
+        'button[onclick*="startCheckout"], button[onclick*="BUY"], .buy-btn'
+    );
+
+    if(buyButton && !document.querySelector(".trust-box")){
+
+        const trustBox = document.createElement("div");
+
+        trustBox.className = "trust-box";
+
+        trustBox.innerHTML = `
+            <h3>Why Shop With Us?</h3>
+
+            <div class="trust-row">
+                <div class="trust-icon">🔒</div>
+                <div>
+                    <b>Secure Checkout</b><br>
+                    Safe and simple ordering process
+                </div>
+            </div>
+
+            <div class="trust-row">
+                <div class="trust-icon">💳</div>
+                <div>
+                    <b>Secure Payment</b><br>
+                    Payment is manually verified
+                </div>
+            </div>
+
+            <div class="trust-row">
+                <div class="trust-icon">📦</div>
+                <div>
+                    <b>Easy Ordering</b><br>
+                    Select size → Address → Payment
+                </div>
+            </div>
+
+            <div class="trust-row">
+                <div class="trust-icon">⭐</div>
+                <div>
+                    <b>Rated 4.1/5</b><br>
+                    Based on 1,808+ ratings
+                </div>
+            </div>
+
+            <div class="trust-row">
+                <div class="trust-icon">💬</div>
+                <div>
+                    <b>Customer Support</b><br>
+                    Contact us if you need help
+                </div>
+            </div>
+        `;
+
+        buyButton.parentNode.insertBefore(trustBox, buyButton);
+    }
+
+
+    /* ---------- ORDER SUMMARY ---------- */
+
+    const addressPage = document.querySelector(
+        'input[placeholder*="Full Name"]'
+    );
+
+    if(addressPage && !document.querySelector(".extra-order-summary")){
+
+        const summary = document.createElement("div");
+
+        summary.className = "extra-order-summary";
+
+        summary.innerHTML = `
+            <h3>Order Summary</h3>
+
+            <div class="extra-summary-row">
+                <span>Product</span>
+                <span>Leather Jacket</span>
+            </div>
+
+            <div class="extra-summary-row">
+                <span>Price</span>
+                <span><s>₹599</s> ₹199</span>
+            </div>
+
+            <div class="extra-summary-row extra-summary-total">
+                <span>Total</span>
+                <span>₹199</span>
+            </div>
+        `;
+
+        addressPage.parentNode.insertBefore(summary, addressPage);
+    }
+
+});
+</script>
+
+<!-- ================= END ADDITION ================= -->
