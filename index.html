@@ -1085,3 +1085,224 @@ function paymentDone(){
 
 </body>
   </html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coupon Offer</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+
+.coupon-box{
+    width:100%;
+    max-width:500px;
+    margin:30px auto;
+    padding:18px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 2px 10px #0002;
+}
+
+.price{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.old-price{
+    color:#888;
+    text-decoration:line-through;
+    font-size:18px;
+    margin-left:8px;
+}
+
+.coupon-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.coupon-row{
+    display:flex;
+    gap:8px;
+}
+
+.coupon-input{
+    flex:1;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:15px;
+    text-transform:uppercase;
+}
+
+.apply-button{
+    background:#2874f0;
+    color:white;
+    border:none;
+    padding:13px 16px;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.message{
+    margin-top:12px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.success{
+    color:#168b32;
+}
+
+.error{
+    color:#e53935;
+}
+
+.buy-button{
+    width:100%;
+    margin-top:18px;
+    padding:15px;
+    background:#ff9f00;
+    color:#222;
+    border:none;
+    border-radius:5px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="coupon-box">
+
+    <div class="price">
+        <span id="price">₹199</span>
+        <span id="oldPrice" class="old-price"></span>
+    </div>
+
+    <div class="coupon-title">
+        Have a Coupon Code?
+    </div>
+
+    <div class="coupon-row">
+
+        <input
+            id="couponCode"
+            class="coupon-input"
+            type="text"
+            placeholder="Enter Coupon Code"
+            autocomplete="off"
+        >
+
+        <button
+            class="apply-button"
+            onclick="applyCoupon()">
+            APPLY
+        </button>
+
+    </div>
+
+    <div
+        id="message"
+        class="message">
+    </div>
+
+    <button
+        id="buyButton"
+        class="buy-button">
+        BUY NOW — ₹199
+    </button>
+
+</div>
+
+
+<script>
+
+function applyCoupon(){
+
+    let code =
+        document
+        .getElementById("couponCode")
+        .value
+        .trim()
+        .toUpperCase();
+
+    let price =
+        document.getElementById("price");
+
+    let oldPrice =
+        document.getElementById("oldPrice");
+
+    let message =
+        document.getElementById("message");
+
+    let buyButton =
+        document.getElementById("buyButton");
+
+
+    if(code === "REAL-SALE1"){
+
+        price.innerText = "₹79";
+
+        oldPrice.innerText = "₹199";
+
+        message.innerText =
+            "✅ Coupon Applied! You Save ₹120";
+
+        message.className =
+            "message success";
+
+        buyButton.innerText =
+            "BUY NOW — ₹79";
+
+    }else{
+
+        price.innerText = "₹199";
+
+        oldPrice.innerText = "";
+
+        message.innerText =
+            "❌ Invalid coupon code";
+
+        message.className =
+            "message error";
+
+        buyButton.innerText =
+            "BUY NOW — ₹199";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
