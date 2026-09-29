@@ -7,6 +7,7 @@
 <title>Leather Jacket | Dealora India</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -32,6 +33,7 @@ header{
 }
 
 .container{
+    width:100%;
     max-width:650px;
     margin:15px auto;
     padding:10px;
@@ -136,6 +138,7 @@ h1{
 .buy{
     width:100%;
     background:#ff9f00;
+    color:#222;
     border:none;
     padding:15px;
     margin-top:20px;
@@ -146,7 +149,7 @@ h1{
 }
 
 .hidden{
-    display:none;
+    display:none !important;
 }
 
 .checkout-box h2,
@@ -166,7 +169,7 @@ textarea{
 }
 
 textarea{
-    height:90px;
+    height:100px;
     resize:none;
 }
 
@@ -179,6 +182,7 @@ textarea{
     border-radius:5px;
     font-size:17px;
     font-weight:bold;
+    cursor:pointer;
 }
 
 .upi{
@@ -189,10 +193,21 @@ textarea{
     margin-top:15px;
 }
 
+.payment-qr{
+    width:200px;
+    max-width:65vw;
+    height:auto;
+    display:block;
+    margin:20px auto;
+    border:4px solid white;
+    border-radius:8px;
+}
+
 .upi-id{
     font-size:20px;
     font-weight:bold;
     margin:10px;
+    word-break:break-word;
 }
 
 .note{
@@ -201,14 +216,91 @@ textarea{
     margin-top:12px;
 }
 
+.offer-card{
+    background:linear-gradient(135deg,#fff3cd,#ffe082);
+    border:2px solid #ffb300;
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.offer-title{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.offer-old{
+    color:#777;
+    text-decoration:line-through;
+    font-size:18px;
+    margin-top:8px;
+}
+
+.offer-new{
+    color:#e53935;
+    font-size:32px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+.offer-save{
+    color:#168b32;
+    font-weight:bold;
+    margin-top:5px;
+}
+
 footer{
     text-align:center;
     padding:25px;
     color:#777;
     font-size:12px;
 }
+
+
+/* MOBILE SCREEN */
+
+@media(max-width:480px){
+
+    .container{
+        width:100%;
+        padding:8px;
+        margin:10px auto;
+    }
+
+    .product-box,
+    .checkout-box,
+    .payment-box,
+    .success-box{
+        padding:15px;
+    }
+
+    .main-image{
+        height:300px;
+    }
+
+    h1{
+        font-size:23px;
+    }
+
+    .price{
+        font-size:28px;
+    }
+
+    .payment-qr{
+        width:200px;
+        max-width:65vw;
+    }
+
+    .upi{
+        padding:15px;
+    }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
@@ -216,48 +308,62 @@ footer{
     <div class="logo">DEALORA INDIA</div>
 </header>
 
+
 <div class="container">
 
-<!-- PRODUCT PAGE -->
+
+<!-- ================= PRODUCT PAGE ================= -->
 
 <div class="product-box" id="productPage">
 
     <img
-    id="mainImage"
-    class="main-image"
-    src="IMG_20260929_033822.jpg"
-    alt="Leather Jacket">
+        id="mainImage"
+        class="main-image"
+        src="IMG_20260929_033822.jpg"
+        alt="Leather Jacket"
+    >
 
     <div class="thumbnails">
 
         <img
-        src="IMG_20260929_033822.jpg"
-        onclick="changeImage(this.src)">
+            src="IMG_20260929_033822.jpg"
+            onclick="changeImage(this.src)"
+            alt="Leather Jacket"
+        >
 
         <img
-        src="IMG_20260929_033833.jpg"
-        onclick="changeImage(this.src)">
+            src="IMG_20260929_033833.jpg"
+            onclick="changeImage(this.src)"
+            alt="Leather Jacket"
+        >
 
         <img
-        src="IMG_20260929_033851.jpg"
-        onclick="changeImage(this.src)">
+            src="IMG_20260929_033851.jpg"
+            onclick="changeImage(this.src)"
+            alt="Leather Jacket"
+        >
 
     </div>
 
+
     <h1>Leather Jacket</h1>
+
 
     <div class="rating">
         ⭐ Seller rating: 4.1/5 (1,808+ ratings)
     </div>
 
+
     <div class="offer">
         SPECIAL SALE
     </div>
 
+
     <div class="price">
         ₹199
-        <span class="old-price">₹538</span>
+        <span class="old-price">₹599</span>
     </div>
+
 
     <div class="info">
 
@@ -269,105 +375,175 @@ footer{
 
     </div>
 
+
     <div class="size-title">
         Select Size
     </div>
 
+
     <div class="sizes">
 
-        <button class="size" onclick="selectSize(this,'M')">
+        <button
+            class="size"
+            onclick="selectSize(this,'M')">
             M
         </button>
 
-        <button class="size" onclick="selectSize(this,'L')">
+        <button
+            class="size"
+            onclick="selectSize(this,'L')">
             L
         </button>
 
-        <button class="size" onclick="selectSize(this,'XL')">
+        <button
+            class="size"
+            onclick="selectSize(this,'XL')">
             XL
         </button>
 
     </div>
 
-    <button class="buy" onclick="startCheckout()">
+
+    <button
+        class="buy"
+        onclick="startCheckout()">
         BUY NOW — ₹199
     </button>
 
 </div>
 
 
-<!-- ADDRESS PAGE -->
 
-<div class="checkout-box hidden" id="checkoutPage">
+<!-- ================= ADDRESS PAGE ================= -->
+
+<div
+    class="checkout-box hidden"
+    id="checkoutPage">
 
     <h2>Delivery Details</h2>
 
-    <input
-    id="name"
-    type="text"
-    placeholder="Full Name">
 
     <input
-    id="phone"
-    type="tel"
-    placeholder="Mobile Number">
+        id="name"
+        type="text"
+        placeholder="Full Name"
+    >
+
+
+    <input
+        id="phone"
+        type="tel"
+        placeholder="Mobile Number"
+    >
+
 
     <textarea
-    id="address"
-    placeholder="Full Delivery Address"></textarea>
+        id="address"
+        placeholder="Full Delivery Address"
+    ></textarea>
 
-    <input
-    id="pincode"
-    type="number"
-    placeholder="Pincode">
 
-    <input
-    id="city"
-    type="text"
-    placeholder="City">
-
-    <input
-    id="state"
-    type="text"
-    placeholder="State">
-
-    <button class="next" onclick="goToPayment()">
+    <button
+        class="next"
+        onclick="goToPayment()">
         CONTINUE TO PAYMENT
     </button>
 
 </div>
 
 
-<!-- PAYMENT PAGE -->
 
-<div class="payment-box hidden" id="paymentPage">
+<!-- ================= PAYMENT PAGE ================= -->
+
+<div
+    class="payment-box hidden"
+    id="paymentPage">
 
     <h2>Payment</h2>
 
-    <p>
-        Amount to Pay:
-        <b>₹199</b>
+
+    <!-- SPECIAL OFFER -->
+
+    <div class="offer-card">
+
+        <div class="offer-title">
+            🎁 SPECIAL OFFER APPLIED
+        </div>
+
+        <div class="offer-old">
+            ₹599
+        </div>
+
+        <div class="offer-new">
+            ₹199
+        </div>
+
+        <div class="offer-save">
+            You Save ₹400
+        </div>
+
+    </div>
+
+
+    <p style="font-size:17px;">
+        Amount to Pay: <b>₹199</b>
     </p>
+
+
+    <!-- UPI -->
 
     <div class="upi">
 
-        <p>Pay using UPI</p>
-
-        <div class="upi-id">
-            YOUR-UPI-ID@upi
-        </div>
-
-        <p>
-            Open Google Pay / PhonePe / Paytm
-            and make the payment of ₹199.
+        <p style="
+            font-size:18px;
+            font-weight:bold;
+        ">
+            Scan QR to Pay
         </p>
 
-        <button class="buy" onclick="paymentDone()">
+
+        <img
+            class="payment-qr"
+            src="payment-qr.jpg"
+            alt="UPI Payment QR Code"
+        >
+
+
+        <div style="
+            font-size:15px;
+            font-weight:bold;
+            margin-top:8px;
+        ">
+            UPI ID
+        </div>
+
+
+        <div class="upi-id">
+            raj-963518@ptyes
+        </div>
+
+
+        <p style="
+            font-size:14px;
+            line-height:1.5;
+            margin-top:12px;
+        ">
+            Scan this QR using Google Pay,
+            PhonePe, Paytm or any UPI app
+            and pay ₹199.
+        </p>
+
+
+        <button
+            type="button"
+            class="buy"
+            onclick="paymentDone()">
             I HAVE PAID ₹199
         </button>
 
+
         <div class="note">
-            Payment verification is manual in this simple version.
+            Payment verification is manual.
         </div>
 
     </div>
@@ -375,11 +551,15 @@ footer{
 </div>
 
 
-<!-- SUCCESS PAGE -->
 
-<div class="success-box hidden" id="successPage">
+<!-- ================= SUCCESS PAGE ================= -->
+
+<div
+    class="success-box hidden"
+    id="successPage">
 
     <h2>✅ Order Received</h2>
+
 
     <p>
         Thank you for your order!
@@ -387,251 +567,193 @@ footer{
 
     <br>
 
-    <p>
-        Product: <b>Leather Jacket</b>
-    </p>
 
     <p>
-        Amount: <b>₹199</b>
+        Product:
+        <b>Leather Jacket</b>
     </p>
+
+
+    <p>
+        Amount:
+        <b>₹199</b>
+    </p>
+
 
     <p>
         Size:
         <b id="finalSize"></b>
     </p>
 
+
     <br>
 
+
     <p>
-        Your order details have been recorded on this device.
+        Payment verification will be done manually.
     </p>
 
 </div>
+
+
+</div>
+
+
+<footer>
+    © 2026 Dealora India
+</footer>
+
+
+
 <script>
+
 let selectedSize = "";
 
-function selectSize(button, size) {
-    document.querySelectorAll(".size").forEach(function(btn) {
-        btn.classList.remove("selected");
-    });
+
+
+/* ================= CHANGE PRODUCT IMAGE ================= */
+
+function changeImage(imageSource){
+
+    document.getElementById("mainImage").src = imageSource;
+
+}
+
+
+
+/* ================= SELECT SIZE ================= */
+
+function selectSize(button, size){
+
+    document
+        .querySelectorAll(".size")
+        .forEach(function(btn){
+
+            btn.classList.remove("selected");
+
+        });
+
 
     button.classList.add("selected");
+
     selectedSize = size;
+
 }
 
-function startCheckout() {
 
-    if (selectedSize === "") {
+
+/* ================= BUY NOW ================= */
+
+function startCheckout(){
+
+    if(selectedSize === ""){
+
         alert("Please select your size first.");
+
         return;
+
     }
 
-    document.getElementById("productPage").classList.add("hidden");
-    document.getElementById("checkoutPage").classList.remove("hidden");
 
-    window.scrollTo(0, 0);
+    document
+        .getElementById("productPage")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("checkoutPage")
+        .classList.remove("hidden");
+
+
+    window.scrollTo(0,0);
+
 }
 
-function goToPayment() {
 
-    let name = document.getElementById("name").value.trim();
-    let phone = document.getElementById("phone").value.trim();
-    let address = document.getElementById("address").value.trim();
 
-    if (name === "") {
+/* ================= ADDRESS → PAYMENT ================= */
+
+function goToPayment(){
+
+    let name =
+        document.getElementById("name").value.trim();
+
+
+    let phone =
+        document.getElementById("phone").value.trim();
+
+
+    let address =
+        document.getElementById("address").value.trim();
+
+
+    if(name === ""){
+
         alert("Please enter your name.");
+
         return;
+
     }
 
-    if (phone === "") {
+
+    if(phone === ""){
+
         alert("Please enter your mobile number.");
+
         return;
+
     }
 
-    if (address === "") {
-        alert("Please enter your full address.");
+
+    if(address === ""){
+
+        alert("Please enter your full delivery address.");
+
         return;
+
     }
 
-    document.getElementById("checkoutPage").classList.add("hidden");
-    document.getElementById("paymentPage").classList.remove("hidden");
 
-    window.scrollTo(0, 0);
+    document
+        .getElementById("checkoutPage")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("paymentPage")
+        .classList.remove("hidden");
+
+
+    window.scrollTo(0,0);
+
 }
 
-function paymentDone() {
-
-    document.getElementById("paymentPage").classList.add("hidden");
-    document.getElementById("successPage").classList.remove("hidden");
-
-    document.getElementById("finalSize").innerText = selectedSize;
-
-    window.scrollTo(0, 0);
-}
-</script>
-<script>
-/* ================= PAYMENT PAGE ================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const paymentPage = document.getElementById("paymentPage");
-
-    if (paymentPage) {
-
-        paymentPage.innerHTML = `
-
-            <h2>Payment</h2>
-
-            <!-- SPECIAL OFFER -->
-            <div style="
-                background:linear-gradient(135deg,#fff3cd,#ffe082);
-                border:2px solid #ffb300;
-                border-radius:10px;
-                padding:18px;
-                text-align:center;
-                margin-bottom:18px;
-            ">
-
-                <div style="
-                    font-size:16px;
-                    font-weight:bold;
-                ">
-                    🎁 SPECIAL OFFER APPLIED
-                </div>
-
-                <div style="
-                    color:#777;
-                    text-decoration:line-through;
-                    font-size:18px;
-                    margin-top:8px;
-                ">
-                    ₹599
-                </div>
-
-                <div style="
-                    color:#e53935;
-                    font-size:32px;
-                    font-weight:bold;
-                    margin-top:3px;
-                ">
-                    ₹199
-                </div>
-
-                <div style="
-                    color:#168b32;
-                    font-weight:bold;
-                    margin-top:5px;
-                ">
-                    You Save ₹400
-                </div>
-
-            </div>
 
 
-            <p style="font-size:17px;">
-                Amount to Pay: <b>₹199</b>
-            </p>
+/* ================= PAYMENT DONE ================= */
 
-
-            <!-- QR PAYMENT -->
-            <div class="upi">
-
-                <p style="
-                    font-size:18px;
-                    font-weight:bold;
-                ">
-                    Scan QR to Pay
-                </p>
-
-
-                <img
-                    src="payment-qr.jpg"
-                    alt="UPI Payment QR Code"
-                    style="
-                        width:250px;
-                        max-width:100%;
-                        display:block;
-                        margin:18px auto;
-                        border:5px solid white;
-                        border-radius:8px;
-                    "
-                >
-
-
-                <div style="
-                    font-size:15px;
-                    font-weight:bold;
-                    margin-top:8px;
-                ">
-                    UPI ID
-                </div>
-
-
-                <div class="upi-id">
-                    raj-963518@ptyes
-                </div>
-
-
-                <p style="
-                    font-size:14px;
-                    line-height:1.5;
-                    margin-top:12px;
-                ">
-                    Scan this QR using Google Pay,
-                    PhonePe, Paytm or any UPI app
-                    and pay ₹199.
-                </p>
-
-
-                <button
-                    type="button"
-                    class="buy"
-                    onclick="paymentDone()"
-                >
-                    I HAVE PAID ₹199
-                </button>
-
-
-                <div class="note">
-                    Payment verification is manual.
-                </div>
-
-            </div>
-        `;
-    }
-
-});
-
-
-/* ================= PAYMENT CONFIRMATION ================= */
-
-function paymentDone() {
+function paymentDone(){
 
     document
         .getElementById("paymentPage")
         .classList.add("hidden");
 
+
     document
         .getElementById("successPage")
         .classList.remove("hidden");
 
-    if (typeof selectedSize !== "undefined") {
 
-        const sizeElement =
-            document.getElementById("finalSize");
+    document
+        .getElementById("finalSize")
+        .innerText = selectedSize;
 
-        if (sizeElement) {
-            sizeElement.innerText = selectedSize;
-        }
-    }
 
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
+
 }
+
 </script>
 
-    <img src="IMG_20260929_044811.jpg" alt="Payment QR">
-    
-
-
-
-
+</body>
+    </html>
