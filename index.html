@@ -911,4 +911,166 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FINAL PAGE OVERRIDE - ONLY LAST ORDER PAGE -->
+
+<style>
+#dealora-final-page{
+    display:none;
+    text-align:center;
+    padding:20px;
+}
+
+#dealora-final-page .final-box{
+    background:#fff;
+    border-radius:14px;
+    padding:22px 16px;
+    border:1px solid #ddd;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+#dealora-final-page h2{
+    margin:0 0 15px;
+    font-size:23px;
+}
+
+#dealora-final-page p{
+    line-height:1.6;
+    margin:10px 0;
+}
+
+#dealora-final-page .pending{
+    margin-top:18px;
+    padding:15px;
+    background:#fff8e1;
+    border-radius:10px;
+}
+
+#dealora-final-page .delivery{
+    margin-top:15px;
+    padding:15px;
+    background:#f5f5f5;
+    border-radius:10px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    /*
+       Last page ko identify karne ke liye
+       existing "Order Received" text check kar raha hai.
+    */
+
+    function checkFinalPage(){
+
+        const text = document.body.innerText.toLowerCase();
+
+        if(
+            text.includes("order received") &&
+            text.includes("payment verification")
+        ){
+
+            /* Purane last-page content ko hide karo */
+            document.querySelectorAll("body > *").forEach(function(el){
+
+                if(
+                    el.id !== "dealora-final-page" &&
+                    el.tagName !== "SCRIPT" &&
+                    el.tagName !== "STYLE"
+                ){
+                    el.style.display = "none";
+                }
+
+            });
+
+            /* Naya final page banao */
+            let finalPage = document.getElementById("dealora-final-page");
+
+            if(!finalPage){
+
+                finalPage = document.createElement("div");
+
+                finalPage.id = "dealora-final-page";
+
+                finalPage.innerHTML = `
+                    <div class="final-box">
+
+                        <h2>✅ Order Received</h2>
+
+                        <p>
+                            <b>Thank you for your order!</b>
+                        </p>
+
+                        <p>
+                            <b>Product:</b> Leather Jacket<br>
+                            <b>Amount:</b> ₹199<br>
+                            <b>Size:</b> XL
+                        </p>
+
+                        <div class="pending">
+                            ⏳ <b>Payment Confirmation Pending</b>
+                            <br><br>
+
+                            Please wait for a short while while we
+                            verify your payment.
+
+                            <br><br>
+
+                            Once your payment is confirmed,
+                            your order will be updated.
+                        </div>
+
+                        <div class="delivery">
+                            🚚 <b>Delivery Information</b>
+                            <br><br>
+
+                            After your order is confirmed, your order
+                            will be delivered to your address within
+                            <b>7–8 days</b>.
+                        </div>
+
+                        <p style="margin-top:20px;">
+                            Thank you for shopping with
+                            <b>Dealora India ❤️</b>
+                        </p>
+
+                    </div>
+                `;
+
+                document.body.appendChild(finalPage);
+            }
+
+            finalPage.style.display = "block";
+        }
+    }
+
+    /* Page load par check */
+    checkFinalPage();
+
+    /* Agar tumhari website JS se page change karti hai,
+       to thodi der baad dobara check kare */
+    setTimeout(checkFinalPage, 300);
+    setTimeout(checkFinalPage, 1000);
+    setTimeout(checkFinalPage, 2000);
+
+});
+</script>
+
+<!-- END FINAL PAGE OVERRIDE -->
+
 <!-- ================= END ADDITION ================= -->
