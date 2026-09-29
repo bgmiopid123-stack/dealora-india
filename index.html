@@ -187,24 +187,26 @@ textarea{
 
 .upi{
     background:#f1f3f6;
-    padding:18px;
+    padding:15px;
     border-radius:8px;
     text-align:center;
     margin-top:15px;
 }
 
+/* QR CODE */
+
 .payment-qr{
-    width:200px;
-    max-width:65vw;
-    height:auto;
     display:block;
-    margin:20px auto;
-    border:4px solid white;
+    width:180px;
+    max-width:60vw;
+    height:auto;
+    margin:15px auto;
+    border:3px solid white;
     border-radius:8px;
 }
 
 .upi-id{
-    font-size:20px;
+    font-size:19px;
     font-weight:bold;
     margin:10px;
     word-break:break-word;
@@ -220,34 +222,34 @@ textarea{
     background:linear-gradient(135deg,#fff3cd,#ffe082);
     border:2px solid #ffb300;
     border-radius:10px;
-    padding:18px;
+    padding:15px;
     text-align:center;
     margin-bottom:18px;
 }
 
 .offer-title{
-    font-size:16px;
+    font-size:15px;
     font-weight:bold;
 }
 
 .offer-old{
     color:#777;
     text-decoration:line-through;
-    font-size:18px;
-    margin-top:8px;
+    font-size:17px;
+    margin-top:7px;
 }
 
 .offer-new{
     color:#e53935;
-    font-size:32px;
+    font-size:30px;
     font-weight:bold;
-    margin-top:3px;
+    margin-top:2px;
 }
 
 .offer-save{
     color:#168b32;
     font-weight:bold;
-    margin-top:5px;
+    margin-top:4px;
 }
 
 footer{
@@ -258,14 +260,14 @@ footer{
 }
 
 
-/* MOBILE SCREEN */
+/* MOBILE */
 
 @media(max-width:480px){
 
     .container{
         width:100%;
         padding:8px;
-        margin:10px auto;
+        margin:8px auto;
     }
 
     .product-box,
@@ -288,12 +290,8 @@ footer{
     }
 
     .payment-qr{
-        width:200px;
-        max-width:65vw;
-    }
-
-    .upi{
-        padding:15px;
+        width:180px;
+        max-width:60vw;
     }
 
 }
@@ -312,7 +310,7 @@ footer{
 <div class="container">
 
 
-<!-- ================= PRODUCT PAGE ================= -->
+<!-- PRODUCT PAGE -->
 
 <div class="product-box" id="productPage">
 
@@ -366,13 +364,9 @@ footer{
 
 
     <div class="info">
-
         <b>For:</b> Men<br>
-
         <b>Material:</b> Synthetic Leather<br>
-
         <b>Available Sizes:</b> M, L, XL
-
     </div>
 
 
@@ -414,7 +408,7 @@ footer{
 
 
 
-<!-- ================= ADDRESS PAGE ================= -->
+<!-- ADDRESS PAGE -->
 
 <div
     class="checkout-box hidden"
@@ -453,7 +447,7 @@ footer{
 
 
 
-<!-- ================= PAYMENT PAGE ================= -->
+<!-- PAYMENT PAGE -->
 
 <div
     class="payment-box hidden"
@@ -461,8 +455,6 @@ footer{
 
     <h2>Payment</h2>
 
-
-    <!-- SPECIAL OFFER -->
 
     <div class="offer-card">
 
@@ -490,8 +482,6 @@ footer{
     </p>
 
 
-    <!-- UPI -->
-
     <div class="upi">
 
         <p style="
@@ -502,10 +492,13 @@ footer{
         </p>
 
 
+        <!-- QR -->
+
         <img
             class="payment-qr"
             src="payment-qr.jpg"
             alt="UPI Payment QR Code"
+            onerror="this.onerror=null;this.src='IMG_20260929_044811.jpg';"
         >
 
 
@@ -552,7 +545,7 @@ footer{
 
 
 
-<!-- ================= SUCCESS PAGE ================= -->
+<!-- SUCCESS PAGE -->
 
 <div
     class="success-box hidden"
@@ -610,8 +603,7 @@ footer{
 let selectedSize = "";
 
 
-
-/* ================= CHANGE PRODUCT IMAGE ================= */
+/* CHANGE PRODUCT IMAGE */
 
 function changeImage(imageSource){
 
@@ -620,8 +612,7 @@ function changeImage(imageSource){
 }
 
 
-
-/* ================= SELECT SIZE ================= */
+/* SELECT SIZE */
 
 function selectSize(button, size){
 
@@ -633,7 +624,6 @@ function selectSize(button, size){
 
         });
 
-
     button.classList.add("selected");
 
     selectedSize = size;
@@ -641,8 +631,7 @@ function selectSize(button, size){
 }
 
 
-
-/* ================= BUY NOW ================= */
+/* BUY NOW */
 
 function startCheckout(){
 
@@ -654,34 +643,28 @@ function startCheckout(){
 
     }
 
-
     document
         .getElementById("productPage")
         .classList.add("hidden");
 
-
     document
         .getElementById("checkoutPage")
         .classList.remove("hidden");
-
 
     window.scrollTo(0,0);
 
 }
 
 
-
-/* ================= ADDRESS → PAYMENT ================= */
+/* ADDRESS → PAYMENT */
 
 function goToPayment(){
 
     let name =
         document.getElementById("name").value.trim();
 
-
     let phone =
         document.getElementById("phone").value.trim();
-
 
     let address =
         document.getElementById("address").value.trim();
@@ -718,19 +701,16 @@ function goToPayment(){
         .getElementById("checkoutPage")
         .classList.add("hidden");
 
-
     document
         .getElementById("paymentPage")
         .classList.remove("hidden");
-
 
     window.scrollTo(0,0);
 
 }
 
 
-
-/* ================= PAYMENT DONE ================= */
+/* PAYMENT DONE */
 
 function paymentDone(){
 
@@ -738,16 +718,13 @@ function paymentDone(){
         .getElementById("paymentPage")
         .classList.add("hidden");
 
-
     document
         .getElementById("successPage")
         .classList.remove("hidden");
 
-
     document
         .getElementById("finalSize")
         .innerText = selectedSize;
-
 
     window.scrollTo(0,0);
 
@@ -756,4 +733,4 @@ function paymentDone(){
 </script>
 
 </body>
-    </html>
+        </html>
